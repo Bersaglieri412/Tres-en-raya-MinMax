@@ -168,18 +168,6 @@ class nodoArbol():
             if self.padre!=None:
                 self.asignarPadre()
                 
-    def imprimirTablero(self,t):
-        for i in t:
-            print('| ',end='')
-            for j in i:         
-                if(j==0):
-                    print(' ',end='')
-                elif(j==1):
-                    print('x',end='')
-                elif(j==2):
-                    print('o',end='')
-                print(' | ',end='')
-            print('\n')
   
     def asignarPadre(self):
         if(self.padre.jugador==1 and self.padre.valor>self.valor):
