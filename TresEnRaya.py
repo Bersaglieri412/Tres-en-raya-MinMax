@@ -71,15 +71,18 @@ class juego():
                 elif(j==2):
                     print('o',end='')
                 print(' | ',end='')
-            print('\n')
+            print("\n")
 
     def jugada(self):
         print("Escriba la casilla en la que desea colocar:")
         j=input()
-        self.tablero[int(j[0])][int(j[1])]=1
+        try:
+            self.tablero[int(j[0])][int(j[1])]=1
+        except:
+            pass
 class IA():
     def run(self,tablero):
-        self.profundidadMax=100
+        self.profundidadMax=11
         self.tablero=tablero
         self.arbol=[]
         self.valor=1
