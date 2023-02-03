@@ -36,7 +36,7 @@ class juego():
     def imprimirGanador(self):
         if(self.ganadorJ==1):
             print("Ganador: x")
-        elif self.ganador==2:
+        elif self.ganadorJ==2:
             print("Ganador: o")
         else:
             print("Empate")
@@ -89,13 +89,31 @@ class IA():
     def Jugada(self):
         for i in self.arbol:
             i.comprobarValor()
-            if self.valor>i.valor:
+            if self.valor<i.valor:
                 self.valor=i.valor
                 self.jugada=i.jugada
                 
                 
         self.tablero[int(self.jugada[0])][int(self.jugada[1])]=2
 
+    def imprimirTablero(self,t):
+        for i in t.tablero:
+            print('| ',end='')
+            for j in i:         
+                if(j==0):
+                    print(' ',end='')
+                elif(j==1):
+                    print('x',end='')
+                elif(j==2):
+                    print('o',end='')
+                print(' | ',end='')
+            print('\n')
+        print("Id: "+str(t.id))
+        try:
+            print("Padre: "+str(t.padre.id))
+        except:
+            pass
+        print("Valor: "+str(t.valor))
     def crearEstados(self):  
         jugador=2 
         for i in range(3):
@@ -106,7 +124,11 @@ class IA():
                         self.jugada=str(i)+str(j)
                         nodo=nodoArbol(0,t,jugador,self.jugada,None)
                         self.arbol.append(nodo)
-                        self.continuarArbol(nodo,0)
+                        j=juego()
+                        if not j.ganador(nodo.tablero) and self.comprobarMatriz(nodo.tablero):
+                                self.continuarArbol(nodo,0)
+                        
+                        
 
     def continuarArbol(self,nodo,pr):
         jugador=nodo.jugador%2+1
