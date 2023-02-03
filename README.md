@@ -6,4 +6,7 @@ No se ha usado ninguna liberría de terceros para el árbol si no que se ha impl
 
 # A futuro
 Se planea pasar el proyecto a C# para hacer una versión en unity con interfaz gráfica.
+
 Se planea hacer que se pueda elegir jugador y turno de comienzo
+
+Se planea hacer, aunque sea en línea de comandos, una forma más sencilla de indicar en qué posición jugar la siguiente ronda.
