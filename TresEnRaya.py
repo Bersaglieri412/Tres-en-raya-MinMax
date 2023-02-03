@@ -89,7 +89,7 @@ class IA():
     def Jugada(self):
         for i in self.arbol:
             i.comprobarValor()
-            if self.valor<i.valor:
+            if self.valor>i.valor:
                 self.valor=i.valor
                 self.jugada=i.jugada
                 
